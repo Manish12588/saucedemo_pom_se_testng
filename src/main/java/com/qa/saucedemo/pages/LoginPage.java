@@ -37,7 +37,7 @@ public class LoginPage {
 
     @Step("Login With Valid Username: {0}")
     public InventoryPage doLogin(String uname, String pwd) {
-        logger.info("user credentials - userName:{} ", uname + ", Password: ******");
+        logLoginAttempt(uname);
         elementUtil.waitForElementVisible(userName, MEDIUM_DEFAULT_TIMEOUT);
         elementUtil.doSendKeys(userName, uname);
         elementUtil.doSendKeys(password, pwd);
@@ -47,12 +47,17 @@ public class LoginPage {
 
     @Step("Login With Invalid Username: {0}")
     public String doLoginWithInvalidCredential(String uname, String pwd) {
-        logger.info("user credentials - userName:{} ", uname + ", Password: ******");
+        logLoginAttempt(uname);
         elementUtil.waitForElementVisible(userName, MEDIUM_DEFAULT_TIMEOUT);
         elementUtil.doSendKeys(userName, uname);
         elementUtil.doSendKeys(password, pwd);
         elementUtil.doClick(loginBtn);
         return elementUtil.waitForElementVisible(errorMessage, DEFAULT_TIMEOUT).getText();
+    }
+
+    //Common logger info method
+    private void logLoginAttempt(String uname) {
+        logger.info("user credentials - userName:{}, password:{}", uname, "******");
     }
 
 }
