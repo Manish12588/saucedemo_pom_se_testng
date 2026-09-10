@@ -19,7 +19,7 @@ public class LoginPage {
     private final By userName = By.id("user-name");
     private final By password = By.id("password");
     private final By loginBtn = By.id("login-button");
-
+    private final By errorMessage = By.cssSelector("h3[data-test='error']");
 
     //2. Supply the driver: Public constructor
     public LoginPage(WebDriver driver) {
@@ -37,11 +37,22 @@ public class LoginPage {
 
     @Step("Login With Valid Username: {0}")
     public InventoryPage doLogin(String uname, String pwd) {
-        logger.info("user credentials - userName:{} ",uname + ", Password: ******");
-        elementUtil.waitForElementVisible(userName, MEDIUM_DEFAULT_TIMEOUT).sendKeys(uname);
+        logger.info("user credentials - userName:{} ", uname + ", Password: ******");
+        elementUtil.waitForElementVisible(userName, MEDIUM_DEFAULT_TIMEOUT);
+        elementUtil.doSendKeys(userName, uname);
         elementUtil.doSendKeys(password, pwd);
         elementUtil.doClick(loginBtn);
         return new InventoryPage(driver);
+    }
+
+    @Step("Login With Invalid Username: {0}")
+    public String doLoginWithInvalidCredential(String uname, String pwd) {
+        logger.info("user credentials - userName:{} ", uname + ", Password: ******");
+        elementUtil.waitForElementVisible(userName, MEDIUM_DEFAULT_TIMEOUT);
+        elementUtil.doSendKeys(userName, uname);
+        elementUtil.doSendKeys(password, pwd);
+        elementUtil.doClick(loginBtn);
+        return elementUtil.waitForElementVisible(errorMessage, DEFAULT_TIMEOUT).getText();
     }
 
 }
