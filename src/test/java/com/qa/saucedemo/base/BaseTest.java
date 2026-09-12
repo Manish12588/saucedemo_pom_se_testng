@@ -2,6 +2,7 @@ package com.qa.saucedemo.base;
 
 import com.qa.saucedemo.factory.DriverFactory;
 import com.qa.saucedemo.pages.*;
+import com.qa.saucedemo.tests.CartPageTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -16,6 +17,7 @@ public class BaseTest {
 
     protected LoginPage loginPage;
     protected InventoryPage inventoryPage;
+    protected CartPage cartPage;
 
 
     //Pre-condition

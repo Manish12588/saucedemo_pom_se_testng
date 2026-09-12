@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,7 @@ public class InventoryPage {
     private final By productList = By.cssSelector("div.inventory_list > div");
     private final By productPriceList = By.cssSelector("div.inventory_list div.inventory_item_price");
     private final By priceSortDropdown = By.className("product_sort_container");
+    private final By cart = By.cssSelector("a.shopping_cart_link");
 
 
     public InventoryPage(WebDriver driver) {
@@ -75,5 +75,10 @@ public class InventoryPage {
             buttonTexts.add(buttonText);
         }
         return buttonTexts;
+    }
+
+    public CartPage navigateToCartPage(){
+        elementUtil.clickWhenReady(cart,DEFAULT_TIMEOUT);
+        return new CartPage(driver);
     }
 }

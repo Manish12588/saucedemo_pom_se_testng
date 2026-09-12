@@ -96,5 +96,4 @@ public class InventoryPageTest extends BaseTest {
                 "Not all products were added to cart."
         );
     }
-
 }
