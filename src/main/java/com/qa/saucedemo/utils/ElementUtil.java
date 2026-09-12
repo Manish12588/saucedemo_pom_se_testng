@@ -96,7 +96,6 @@ public class ElementUtil {
         getElement(locatorType, locatorValue).sendKeys(value);
     }
 
-
     @Step("Clicking on element using: {0}")
     public void doClick(By locator) {
         getElement(locator).click();
@@ -161,7 +160,7 @@ public class ElementUtil {
         List<String> eleTextList = new ArrayList<String>();
         for (WebElement ele : eleList) {
             String text = ele.getText();
-            if (text.length() != 0) {
+            if (!text.isEmpty()) {
                 System.out.println(text);
                 eleTextList.add(text);
             }

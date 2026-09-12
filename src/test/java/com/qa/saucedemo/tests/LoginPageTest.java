@@ -25,7 +25,7 @@ public class LoginPageTest extends BaseTest {
     @Description("TC_02: Login with valid credentials")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Manish")
-    @Test(priority = Short.MAX_VALUE, description = "Login with valid credentials")
+    @Test(description = "Login with valid credentials")
     public void loginWithValidCredentials() {
         inventoryPage = loginPage.doLogin(properties.getProperty("APP_USERNAME"), properties.getProperty("APP_PASSWORD"));
         Assert.assertEquals(inventoryPage.getInventoryPageUrl(), INVENTORY_PAGE_URL);
