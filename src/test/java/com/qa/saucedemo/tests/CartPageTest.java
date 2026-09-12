@@ -51,9 +51,7 @@ public class CartPageTest extends BaseTest {
     @Test(description = "Verify Cart Product Details")
     public void verifyCartProductDetails() {
         String productName = "Sauce Labs Backpack";
-
         ProductDetails actualDetails = cartPage.getCartProductDetails(productName);
-
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actualDetails.getProductName(),
                 "Sauce Labs Backpack",

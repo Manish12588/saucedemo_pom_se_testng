@@ -71,7 +71,7 @@ public class JavaScriptUtil {
 
     public void flash(WebElement element) {
         String bgColor = element.getCssValue("backgroundColor"); //Capture the existing color of element
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             changeColor("rgb(255,255,0)", element); // Yellow
             changeColor(bgColor, element);
         }

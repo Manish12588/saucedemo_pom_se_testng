@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static com.qa.saucedemo.constants.AppConstants.DEFAULT_TIMEOUT;
 import static com.qa.saucedemo.constants.AppConstants.MEDIUM_DEFAULT_TIMEOUT;
 
 public class CartPage {
@@ -22,6 +23,8 @@ public class CartPage {
     private final By cartProductDescription = By.cssSelector("[data-test='inventory-item-desc']");
     private final By cartProductPrice = By.cssSelector("[data-test='inventory-item-price']");
     private final By cartProductQuantity = By.cssSelector("[data-test='item-quantity']");
+    private final By checkoutButton = By.xpath("//button[text()='Checkout']");
+    private final By cartPageHeader = By.cssSelector("[data-test='title']");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -80,5 +83,12 @@ public class CartPage {
         return productContainer.findElement(cartProductQuantity).getText();
     }
 
+    public CheckoutInfoPage navigateToCheckoutPage(){
+        elementUtil.doClick(checkoutButton);
+        return new CheckoutInfoPage(driver);
+    }
 
+    public String getPageTitle() {
+        return elementUtil.doElementGetText(cartPageHeader);
+    }
 }

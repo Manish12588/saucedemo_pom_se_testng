@@ -26,4 +26,10 @@
             <class name="com.qa.saucedemo.tests.CartPageTest"/>
         </classes>
     </test>
+    <test name="Checkout Page Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.qa.saucedemo.tests.CheckoutPageTest"/>
+        </classes>
+    </test>
 </suite>

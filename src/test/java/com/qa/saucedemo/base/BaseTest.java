@@ -18,6 +18,9 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected InventoryPage inventoryPage;
     protected CartPage cartPage;
+    protected CheckoutInfoPage checkoutInfoPage;
+    protected CheckoutOverviewPage checkoutOverviewPage;
+    protected CheckoutCompletePage checkoutCompletePage;
 
 
     //Pre-condition
