@@ -144,7 +144,7 @@ public class DriverFactory {
                 logger.info("Running test on '{}' env.", envName.toUpperCase());
                 switch (envName.toLowerCase().trim()) {
                     case "qa":
-                        fis = new FileInputStream("./src/test/resources/config/qa.config.properties");
+                        fis = new FileInputStream("./src/test/resources/config/config.properties");
                         break;
                     case "dev":
                         fis = new FileInputStream("./src/test/resources/config/dev.config.properties");

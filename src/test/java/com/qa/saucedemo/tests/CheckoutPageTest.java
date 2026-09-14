@@ -2,10 +2,7 @@ package com.qa.saucedemo.tests;
 
 import com.qa.saucedemo.base.BaseTest;
 import com.qa.saucedemo.models.ProductDetails;
-import io.qameta.allure.Description;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,6 +10,9 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
+@Epic("Epic_01: Design Pages For Sauce Lab Demo Application")
+@Feature("Feature_05: Checkout Page - Test")
+@Story("US_05: Add product to cart and successfully checkout.")
 public class CheckoutPageTest extends BaseTest {
 
     private final List<String> productsToAdd = List.of(

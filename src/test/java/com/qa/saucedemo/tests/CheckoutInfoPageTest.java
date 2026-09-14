@@ -1,16 +1,16 @@
 package com.qa.saucedemo.tests;
 
 import com.qa.saucedemo.base.BaseTest;
-import io.qameta.allure.Description;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
+@Epic("Epic_01: Design Pages For Sauce Lab Demo Application")
+@Feature("Feature_04: CheckoutInfo Page - Test")
+@Story("US_04: Validate checkout info page with valid and invalid data.")
 public class CheckoutInfoPageTest extends BaseTest {
 
     private final List<String> productsToAdd = List.of(

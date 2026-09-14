@@ -2,10 +2,7 @@ package com.qa.saucedemo.tests;
 
 import com.qa.saucedemo.base.BaseTest;
 import com.qa.saucedemo.models.ProductDetails;
-import io.qameta.allure.Description;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,7 +10,9 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-
+@Epic("Epic_01: Design Pages For Sauce Lab Demo Application")
+@Feature("Feature_03: Sauce Lab Demo - Cart Page Test")
+@Story("US_03: Verify the products details in cart page.")
 public class CartPageTest extends BaseTest {
 
     @BeforeClass
