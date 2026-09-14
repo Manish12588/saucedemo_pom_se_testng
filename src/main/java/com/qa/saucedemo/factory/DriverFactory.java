@@ -174,20 +174,20 @@ public class DriverFactory {
         }
 
         // Allow CLI/CI overrides via -Dkey=value without editing property files
-        overridePropWithSystemProperty("headless");
-        overridePropWithSystemProperty("remote");
-        overridePropWithSystemProperty("browser");
-        overridePropWithSystemProperty("username");
-        overridePropWithSystemProperty("password");
+        overridePropWithSystemProperty("HEADLESS", "headless");
+        overridePropWithSystemProperty("REMOTE", "remote");
+        overridePropWithSystemProperty("BROWSER", "browser");
+        overridePropWithSystemProperty("APP_USERNAME", "username");
+        overridePropWithSystemProperty("APP_PASSWORD", "password");
         return properties;
     }
 
-    private void overridePropWithSystemProperty(String key) {
-        String sysVal = System.getProperty(key);
+    private void overridePropWithSystemProperty(String propKey, String sysPropName) {
+        String sysVal = System.getProperty(sysPropName);
         if (sysVal != null && !sysVal.isEmpty()) {
-            String logVal = key.equalsIgnoreCase("password") ? "******" : sysVal;
-            logger.info("Overriding '{}' from system property: {}", key, logVal);
-            properties.setProperty(key, sysVal);
+            String logVal = propKey.equalsIgnoreCase("password") ? "******" : sysVal;
+            logger.info("Overriding '{}' from system property -D{}: {}", propKey, sysPropName,logVal);
+            properties.setProperty(propKey, sysVal);
         }
     }
 
